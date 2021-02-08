@@ -1,6 +1,10 @@
 // TODO: Include packages needed for this application
 const inquirer = require('inquirer');
 const fs = require('fs');
+const util= require('util');
+const generateReadme= require('./utils/generateMarkdown');
+const async= util.promisify(fs.writeFile);
+
 
 // TODO: Create an array of questions for user input
 const questions = ["What is the title of your project?", "Give a brief summary of your project.", "What problem does your project solve?", "What steps did you take to solve this problem?", "What tools and resources did you use?", "Provide a link to your project.", "What license type would you like?", "Add gitignore?"];
@@ -59,15 +63,36 @@ inquirer
         }
 
     ])
-    .then((answers)=>{
-        console.log(answers)
 
-    })
+    return inquirer.prompt();
+    
+        
+        
+
+        
+
+    
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) { }
+
+//
 
 // TODO: Create a function to initialize app
-function init() { }
+async function init() {
+    try {
+        const response= await inquirer.prompt();
+        const contentGen= generateReadme(response);
+
+        await async('./files/README.md',contentGen);
+        console.log("README successfully generated!");
+        
+    } catch (error) {
+        console.log(error);
+        console.log('Uh Oh! Something Went Wrong!')
+        
+    }
+    
+
+ }
 
 // Function call to initialize app
 init();
