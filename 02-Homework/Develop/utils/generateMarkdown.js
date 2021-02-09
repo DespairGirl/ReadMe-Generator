@@ -91,7 +91,7 @@ function renderLicenseSection(license) {
   }
   else {
 
-    return `Licensed by ${license.name}`;
+    return `Licensed by ${license}`;
 
 
   }
@@ -140,8 +140,8 @@ const generateMarkdown = (data) => {
   ---
   
   ## License Info
-  ![link](${renderLicenseSection(data.license)})
-  ![link](${renderLicenseLink(data.license)})
+  [link](${renderLicenseSection(data.license)})
+  [link](${renderLicenseLink(data.license)})
 
   ---
 

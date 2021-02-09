@@ -1,4 +1,4 @@
-# My Project
+# ReadME Generator
   ---
   ![badge](https://img.shields.io/static/v1?label=License&message=MIT&color=blue)
 
@@ -13,17 +13,17 @@
 
   
   ## Description
-  This makes a README Markdown file
+  It Does Stuff
   ![My Website]()
 
   ---
   ## Installation
-  NPM 
+  NPM
 
   ---
 
   ## Usage
-  Click enter
+  Can be used to generate a markdown ReadME file
 
   ---
 
@@ -38,12 +38,12 @@
   ---
   
   ## License Info
-  Licensed by undefined
-  [object Object]
+  [link](Licensed by MIT)
+  [link]([object Object])
 
   ---
 
   ## Contact Info
   Despair Girl
-  MMM@gmail.com
+  truttling.mariah@gmail.com
 
