@@ -7,13 +7,13 @@ This was an intersting project. Learning more about NPM and the packages availab
 
 ---
 ## **Tutorial**
-[[![Tutorial](02-Homework\Develop\files\Capture1.PNG)]("https://drive.google.com/file/d/1vdOcCibjNXyh0AKo8QyI63w-uVZb8xGM/preview")
+[[![Tutorial](files\Capture1.PNG)]("https://drive.google.com/file/d/1vdOcCibjNXyh0AKo8QyI63w-uVZb8xGM/preview")
 
 Tutorial Video Link Here: [TUTORIAL!](https://drive.google.com/file/d/1vdOcCibjNXyh0AKo8QyI63w-uVZb8xGM/view)
 ---
 ## Screenshots
-![Prompt](02-Homework\Develop\files\Capture2.PNG)
-![File](02-Homework\Develop\files\Capture3.PNG)
+![Prompt](files\Capture2.PNG)
+![File](files\Capture3.PNG)
 
 ---
 ## **Tools Used**
