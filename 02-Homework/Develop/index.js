@@ -1,98 +1,68 @@
 // TODO: Include packages needed for this application
 const inquirer = require('inquirer');
 const fs = require('fs');
-const util= require('util');
-const generateReadme= require('./utils/generateMarkdown');
-const async= util.promisify(fs.writeFile);
-
+const generateMarkdown = require('./utils/generateMarkdown');
+const util = require('util');
+const writeFileAsync = util.promisify(fs.writeFile);
+let fileName = 'READMEFin1.md'
 
 // TODO: Create an array of questions for user input
-const questions = ["What is the title of your project?", "Give a brief summary of your project.", "What problem does your project solve?", "What steps did you take to solve this problem?", "What tools and resources did you use?", "Provide a link to your project.", "What license type would you like?", "Add gitignore?"];
-
-inquirer
-    .prompt([
+const questionsPrompt = () => {
+    return inquirer.prompt([
         {
             type: 'input',
             name: 'title',
-            message: questions[0]
-
+            message: 'Enter the name of your Project...'
         },
         {
             type: 'input',
-            name: 'summary',
-            message: questions[1]
-
+            name: 'description',
+            message: 'Add a description of your Project...'
         },
         {
             type: 'input',
-            name: 'problem',
-            message: questions[2]
-
-        },
-        {
-            type: ' input',
-            name: 'solution',
-            message: questions[3]
-
+            name: 'installation',
+            message: 'Add installations needed for the Project to run...'
         },
         {
             type: 'input',
-            name: 'tools',
-            message: questions[4]
+            name: 'usage',
+            message: 'Enter how this Project can be used... '
+        },
 
+        {
+            type: 'list',
+            name: 'license',
+            message: 'Choose a License.',
+            choices: ['None', 'Apache 2.0', 'GNU v3.0', 'MIT', 'Boost 1.0', 'Creative Commons', 'Eclipse 2.0', 'GNU v2.0', 'GNU Lesser v2.1']
         },
         {
             type: 'input',
-            name: 'link',
-            message: questions[5]
-
+            name: 'contributions',
+            message: 'List your contributors...'
         },
         {
-            type:'list',
-            name: 'lic',
-            message: questions[6],
-            choices:['None','Apache 2.0','GNU Public v3.0','MIT','Boost 1.0','Creative Commons', 'Eclipse 2.0', 'GNU Gen Public v2.0','GNU Lesser v2.1']
+            type: 'input',
+            name: 'test',
+            message: 'Enter test instructions...'
         },
         {
-            type: 'confirm',
-            name:'ignore',
-            message: questions[7],
-            default: true
-
-
+            type: 'input',
+            name: 'github',
+            message: 'Enter your Github Username...'
+        },
+        {
+            type: 'input',
+            name: 'email',
+            message: 'Enter your email address...'
         }
+    ]);
+}
+questionsPrompt()
 
-    ])
-
-    return inquirer.prompt();
-    
-        
-        
-
-        
-
-    
-// TODO: Create a function to write README file
-
-//
-
-// TODO: Create a function to initialize app
-async function init() {
-    try {
-        const response= await inquirer.prompt();
-        const contentGen= generateReadme(response);
-
-        await async('./files/README.md',contentGen);
-        console.log("README successfully generated!");
-        
-    } catch (error) {
-        console.log(error);
-        console.log('Uh Oh! Something Went Wrong!')
-        
-    }
+    .then((data) => writeFileAsync(fileName, generateMarkdown(data)))
+    .then(() => console.log('READEME GENERATED!'))
+    .catch((error) => console.log(error))
     
 
- }
 
-// Function call to initialize app
-init();
