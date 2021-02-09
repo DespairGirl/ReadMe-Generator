@@ -140,8 +140,8 @@ const generateMarkdown = (data) => {
   ---
   
   ## License Info
-  ${renderLicenseSection(data.license)}
-  ${renderLicenseLink(data.license)}
+  ![link](${renderLicenseSection(data.license)})
+  ![link](${renderLicenseLink(data.license)})
 
   ---
 
